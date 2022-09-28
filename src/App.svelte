@@ -1,11 +1,34 @@
 <script>
-	export let name;
+	import 'bulma/css/bulma.css';
+    import Menu from "./lib/Menu.svelte";
+	import { Router, Link, Route } from "svelte-routing";
+	
+	import CategoryContent from './routes/CategoryContent.svelte';
+	import HomePage from './routes/HomePage.svelte';
+    import Footer from './lib/Footer.svelte';
 </script>
 
+
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>REC-SYS-PAPERS</h1>
+	<p>整理「搜广推」领域的相关文献。</p>
+	
 </main>
+<section class="section columns">
+	<Menu />
+	<section class="container columns">
+		<Router>
+			<Route path="/">
+				<HomePage />
+			</Route>
+			<Route path="category/:cat" let:params>
+				<CategoryContent cat="{params.cat}" />
+			  </Route>
+		</Router>
+	</section>
+</section>
+<Footer />
+
 
 <style>
 	main {
