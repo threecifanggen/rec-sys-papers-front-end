@@ -34,7 +34,4 @@
     display:flex;
     flex-direction: column;
 }
-.cart-footer {
-    margin-top: auto;
-}
 </style>
