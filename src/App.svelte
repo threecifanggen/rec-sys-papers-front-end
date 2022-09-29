@@ -6,27 +6,25 @@
 	import CategoryContent from './routes/CategoryContent.svelte';
 	import HomePage from './routes/HomePage.svelte';
     import Footer from './lib/Footer.svelte';
+    import BreadCrumb from './lib/BreadCrumb.svelte';
 </script>
 
 
 <main>
 	<h1>REC-SYS-PAPERS</h1>
-	<p>整理「搜广推」领域的相关文献。</p>
-	
+	<p style="color:gray">整理「搜广推」领域的相关文献。</p>
+	<br>
+	<BreadCrumb />
 </main>
-<section class="section columns">
-	<Menu />
-	<section class="container columns">
-		<Router>
-			<Route path="/">
-				<HomePage />
-			</Route>
-			<Route path="category/:cat" let:params>
-				<CategoryContent cat="{params.cat}" />
-			  </Route>
-		</Router>
-	</section>
-</section>
+
+<Router>
+	<Route path="/"><HomePage /></Route>
+	<Route path="/category/:cat" let:params>
+		<CategoryContent cat="{params.cat}" />
+	</Route>
+	<Route path="/search/*"></Route>
+</Router>
+<br><br><br>
 <Footer />
 
 

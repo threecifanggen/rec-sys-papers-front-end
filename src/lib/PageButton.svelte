@@ -13,6 +13,7 @@
 	});
     
     function clickPage(n) {
+        document.body.scrollIntoView();
         pageNowStore.set(n);
         pageNowStore.subscribe(value => {
 		  pageNow = value;

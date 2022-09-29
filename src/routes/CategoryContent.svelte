@@ -16,26 +16,49 @@
     $: selectedPaper = (cat == "All") ? papers: (papers.filter((p) => p.category== cat));
     $: selectedItemNum = selectedPaper.length;
     $: showPaper = selectedPaper.slice(itemNumPerPage * (pageNow - 1), itemNumPerPage * pageNow);
+    $: showPaperLeft = showPaper.slice(0, itemNumPerPage/2);
+    $: showPaperRight = showPaper.slice(itemNumPerPage/2, itemNumPerPage)
 </script>
 
-<div>
-<article>
-    {#each showPaper as paper}
-       <PaperCard 
-        year={paper.year}
-        url={paper.url}
-        tagArray = {paper.tag}
-        name={paper.name}
-        authorArray = {paper.authors}
-        company = {paper.company} 
-        />
-        <br>
-        <br>
-    {/each}
-</article>
+<section class="section columns">
+    <Menu />
+    <section class="container is-three-quarters">
+        <div class="columns">
+        <div class="column is-half"><article>
+            {#each showPaperLeft as paper}
+            <PaperCard 
+                year={paper.year}
+                url={paper.url}
+                tagArray = {paper.tag}
+                name={paper.name}
+                authorArray = {paper.authors}
+                company = {paper.company} 
+                />
+                <br>
+                <br>
+            {/each}
+        </article></div>
 
-<CardPagination 
-    itemNum={selectedItemNum}
-    itemNumPerPage={itemNumPerPage}
-    />
-</div>
+        <div class="column is-half"><article>
+            {#each showPaperRight as paper}
+            <PaperCard 
+                year={paper.year}
+                url={paper.url}
+                tagArray = {paper.tag}
+                name={paper.name}
+                authorArray = {paper.authors}
+                company = {paper.company} 
+                />
+                <br>
+                <br>
+            {/each}
+        </article></div>
+        </div>
+        <div>
+            <CardPagination 
+                itemNum={selectedItemNum}
+                itemNumPerPage={itemNumPerPage}/>
+        </div>    
+    </section>
+    
+</section>

@@ -16,6 +16,7 @@
     $: pageNum = Math.ceil(itemNum / itemNumPerPage);
 
     function clickPage(n, pageNum) {
+        document.body.scrollIntoView();
         n = ((n >= 1)&&(n<=pageNum))? n: 1;
         pageNowStore.set(n);
         pageNowStore.subscribe(value => {
