@@ -28,3 +28,13 @@
         </div>
     </div>
 </div>
+
+<style>
+.card {
+    display:flex;
+    flex-direction: column;
+}
+.cart-footer {
+    margin-top: auto;
+}
+</style>

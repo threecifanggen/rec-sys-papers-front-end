@@ -1,5 +1,5 @@
 <script>
-    import CardPagination from "../lib/CardPagination.svelte";
+    import CardPagination from "../lib/pagination/CardPagination.svelte";
     import Menu from "../lib/Menu.svelte";
     import PaperCard from "../lib/PaperCard.svelte";
     import papers from "../store/data.json";

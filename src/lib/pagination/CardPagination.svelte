@@ -1,7 +1,7 @@
 <!-- 分页功能 -->
 <script>
     import EllipsisPageButton from "./EllipsisPageButton.svelte";
-    import PageButton from "./PageButton.svelte";
+    import PageButton from "./pagination/PageButton.svelte";
     import { pageNowStore } from "../store/pageNowStore";
 
     export let itemNum = 100;
